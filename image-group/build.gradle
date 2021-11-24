@@ -50,8 +50,8 @@ afterEvaluate {
                 from components.release
 
                 // You can then customize attributes of the publication as shown below.
-                groupId = 'com.headmostlab.image-group'
-                artifactId = 'final'
+                groupId = 'com.github.vkharapaev'
+                artifactId = 'image-group'
                 version = '1'
             }
             // Creates a Maven publication called “debug”.
@@ -59,8 +59,8 @@ afterEvaluate {
                 // Applies the component for the debug build variant.
                 from components.debug
 
-                groupId = 'com.headmostlab.image-group'
-                artifactId = 'final-debug'
+                groupId = 'com.github.vkharapaev'
+                artifactId = 'image-group'
                 version = '1'
             }
         }
