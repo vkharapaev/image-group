@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageGroupView">
+        <attr name="gridMargin" format="dimension" />
+        <attr name="imageRadius" format="dimension" />
+        <attr name="errorPlaceholderColor" format="color" />
+        <attr name="moreTexAppearance" format="reference" />
+        <attr name="imageGroupViewStyle" format="reference" />
+    </declare-styleable>
+</resources>

@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "TestImageGroupApp"
 include ':image-group'
+include ':app'
