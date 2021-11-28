@@ -7,5 +7,6 @@
         <attr name="gridSize" format="dimension" />
         <attr name="overflowTexAppearance" format="reference" />
         <attr name="rippleColor" />
+        <attr name="clippingDrawable" format="reference" />
     </declare-styleable>
 </resources>

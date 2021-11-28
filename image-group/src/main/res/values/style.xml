@@ -7,6 +7,7 @@
             @style/ImageGroupViewOverflowTextAppearanceDefStyle
         </item>
         <item name="rippleColor">#33FFFFFF</item>
+        <item name="clippingDrawable">@drawable/image_view_group_background</item>
     </style>
 
     <style name="ImageGroupViewOverflowTextAppearanceDefStyle" parent="TextAppearance.MaterialComponents.Headline6">

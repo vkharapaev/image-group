@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.RippleDrawable
 import android.util.AttributeSet
@@ -12,6 +11,7 @@ import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.res.getDimensionOrThrow
@@ -43,13 +43,20 @@ class ImageGroupView @JvmOverloads constructor(
     private var imageLoader: ImageLoader? = null
     private val imageViewList = mutableListOf<ImageView>()
     private var overflowTextView: TextView? = null
-    private var rippleColor = 0
+    private var rippleColor = Color.TRANSPARENT
+    private var clippingDrawable: Drawable? = null
 
     init {
         context.withStyledAttributes(attrs, R.styleable.ImageGroupView, defStyleAttr, defStyleRes) {
             gridSize = getDimensionOrThrow(R.styleable.ImageGroupView_gridSize)
             textAppearanceStyle = getResourceId(R.styleable.ImageGroupView_overflowTexAppearance, 0)
             rippleColor = getColor(R.styleable.ImageGroupView_rippleColor, 0)
+            clippingDrawable = getDrawable(R.styleable.ImageGroupView_clippingDrawable)
+        }
+
+        clippingDrawable?.let {
+            clipToOutline = true
+            background = it
         }
     }
 
@@ -88,7 +95,7 @@ class ImageGroupView @JvmOverloads constructor(
         removeViews()
 
         repeat(min(images.size, MAX_IMAGE_VIEW_COUNT)) {
-            CustomImageView(context).apply {
+            RippleImageView(context, rippleColor).apply {
                 scaleType = ImageView.ScaleType.CENTER_CROP
                 imageViewList.add(this)
                 addView(this)
@@ -263,18 +270,16 @@ class ImageGroupView @JvmOverloads constructor(
         imageViewList[3].run { overflowTextView?.layout(left, top, right, bottom) }
     }
 
-    private inner class CustomImageView(context: Context) : AppCompatImageView(context) {
+    private class RippleImageView(context: Context, @ColorInt private val color: Int) :
+        AppCompatImageView(context) {
 
         override fun setImageDrawable(drawable: Drawable?) {
-            super.setImageDrawable(wrapWithRipple(drawable))
-        }
-
-        private fun wrapWithRipple(original: Drawable?): Drawable {
-            return RippleDrawable(
-                ColorStateList.valueOf(rippleColor),
-                original,
-                null
+            super.setImageDrawable(
+                if (color == Color.TRANSPARENT) drawable else wrapWithRipple(drawable)
             )
         }
+
+        private fun wrapWithRipple(original: Drawable?): Drawable =
+            RippleDrawable(ColorStateList.valueOf(color), original, null)
     }
 }
