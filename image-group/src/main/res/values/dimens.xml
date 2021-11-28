@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="image_margin">2dp</dimen>
-    <dimen name="image_radius">16dp</dimen>
+    <dimen name="image_view_group_image_radius">32dp</dimen>
 </resources>

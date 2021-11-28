@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="imageGroupViewPlaceHolderColor" format="color" />
+    <attr name="imageGroupViewImageRadius" format="dimension" />
+    <attr name="imageGroupViewStyle" format="reference" />
     <declare-styleable name="ImageGroupView">
-        <attr name="gridMargin" format="dimension" />
-        <attr name="imageRadius" format="dimension" />
-        <attr name="errorPlaceholderColor" format="color" />
-        <attr name="moreTexAppearance" format="reference" />
-        <attr name="imageGroupViewStyle" format="reference" />
+        <attr name="gridSize" format="dimension" />
+        <attr name="overflowTexAppearance" format="reference" />
+        <attr name="rippleColor" />
+        <attr name="clippingDrawable" format="reference" />
     </declare-styleable>
 </resources>
