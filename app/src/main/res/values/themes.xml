@@ -1,7 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-
-
     <style name="Theme.TestImageGroupApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
@@ -15,20 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
-<!--        <item name="imageGroupViewStyle">@style/Widget.ImageGroupView</item>-->
-
-<!--        <item name="gridMargin">100dp</item>-->
-<!--        <item name="imageGroupViewStyle">@style/Widget.ImageGroupView</item>-->
+        <item name="imageGroupViewPlaceHolderColor">?colorPrimary</item>
+        <item name="imageGroupViewImageRadius">@dimen/image_view_group_image_radius</item>
     </style>
-
-
-
-<!--    <style name="Widget.ImageGroupView" parent="Widget.ImageGroupViewDefStyle">-->
-<!--        <item name="gridMargin2">150dp</item>-->
-<!--    </style>-->
-
-<!--    <style name="Widget.ImageGroupView2" parent="Widget.ImageGroupView">-->
-<!--        <item name="gridMargin2">250dp</item>-->
-<!--    </style>-->
 
 </resources>
