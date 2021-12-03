@@ -36,7 +36,11 @@ class ImageGroupView @JvmOverloads constructor(
 
     @ColorInt
     private val dimmedImageViewColor =
-        ResourcesCompat.getColor(resources, R.color.image_group_view_dimmed_image_view_color, context.theme)
+        ResourcesCompat.getColor(
+            resources,
+            R.color.image_group_view_dimmed_image_view_color,
+            context.theme
+        )
 
     @ColorInt
     private val dimmedOverflowImageViewColor =
@@ -52,9 +56,9 @@ class ImageGroupView @JvmOverloads constructor(
     @StyleRes
     private val styleFromDefAttr: Int = run {
         context.withStyledAttributes(attrs = intArrayOf(defStyleAttr)) {
-            return@run getResourceId(0, 0)
+            return@run getResourceId(0, ResourcesCompat.ID_NULL)
         }
-        0
+        ResourcesCompat.ID_NULL
     }
 
     private val styledContext = ContextThemeWrapper(context,
@@ -62,7 +66,7 @@ class ImageGroupView @JvmOverloads constructor(
             setTo(context.theme)
             applyStyle(defStyleRes, true)
             applyStyle(styleFromDefAttr, true)
-            applyStyle(attrs?.styleAttribute ?: 0, true)
+            applyStyle(attrs?.styleAttribute ?: ResourcesCompat.ID_NULL, true)
         }
     )
 
