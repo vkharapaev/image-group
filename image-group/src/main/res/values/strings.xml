@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="image_group_view_overflow_text_template">+%1$d</string>
+    <string name="image_group_view_image_loader_is_not_specified">ImageLoader is not specified</string>
+</resources>
